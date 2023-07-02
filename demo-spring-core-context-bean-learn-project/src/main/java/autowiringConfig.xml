@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+    <!-- enabling Autowire annotations -->
+    <context:annotation-config />
+
+    <!-- beans for autowiring using XML -->
+    <bean class="com.Autowiring.XML.ClassB" name="objOfClassB" p:b="100" />
+
+
+    <!-- Autowiring using xml can be done by differnent ways - byName , byType , constructor etc -->
+    <!-- by-name example | property name and bean name must be same for autowire by-name is to
+    work-->
+    <!-- <bean class="com.Autowiring.XML.ClassA" name="beanOfClassA" p:a="200" autowire="byName" /> -->
+
+
+    <!-- by-type example | property type and autowired bean type ("com.Autowiring.{ClassB}") name
+    must be same for autowire by-type is to workname can be differnet here -->
+    <!-- <bean class="com.Autowiring.XML.ClassA" name="beanOfClassA" p:a="200" autowire="byType" /> -->
+
+
+    <!-- to use constructor injection we use autowire="construector" -->
+    <bean class="com.Autowiring.XML.ClassA" name="beanOfClassA" c:a="200"
+        autowire="constructor" />
+
+
+    <!-- beans for autowiring using Annotation -->
+    <!-- @Autowired uses type annotation of property so bean name and property name can be different 
+    but it is recommended to keep the name same of bean and property to be injected to avoid any
+    confusion -->
+    <bean class="com.Autowiring.Annotation.ClassB" name="beanOfClassB1" p:b="110" />
+    <bean class="com.Autowiring.Annotation.ClassB" name="beanOfClassB2" p:b="120" />
+    <bean class="com.Autowiring.Annotation.ClassA" name="beanClassA" p:a="200" />
+
+</beans>

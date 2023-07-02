@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+    <!-- p - schema for property injection -->
+
+    <!-- importing all required dependency config xml files -->
+    <import resource="./addressConfig.xml" />
+
+    <!-- these are our beans -->
+    <!-- all beans here will be using setter injection as defined -->
+    <!-- defining bean first way -->
+    <bean class="com.example.Student" name="Student1">
+        <!-- if you are setting the field using 'property tag' then you are using setter injection -->
+        <property name="studentId">
+            <value>11001</value>
+        </property>
+        <property name="studentName">
+            <value>Himadri</value>
+        </property>
+        <property name="studentSubjects">
+            <list>
+                <value>Philosophy</value>
+                <value>Maths</value>
+                <value>Physics</value>
+            </list>
+        </property>
+        <property name="studentUniqueRegistrations">
+            <set>
+                <value>Canteen</value>
+                <value>Park</value>
+                <value>Library</value>
+            </set>
+        </property>
+        <property name="studentSubjectFaculty">
+            <map>
+                <entry key="philosophy" value="mrs gupta" />
+                <entry key="maths" value="mr guddu" />
+                <entry key="physics" value="mrs sabita" />
+            </map>
+        </property>
+        <property name="studentProperties">
+            <props>
+                <prop key="character">Average</prop>
+                <prop key="focus">Good</prop>
+                <prop key="values">Excellent</prop>
+            </props>
+        </property>
+        <!-- injecting ref of another obj -->
+        <property name="studentAddress">
+            <ref bean="address1" />
+        </property>
+    </bean>
+
+
+    <!-- defining bean second way -->
+    <!-- if you are setting the field using  ""PROPERTY TAG""  then you are using setter injection -->
+    <bean class="com.example.Student" name="Student2">
+        <property name="studentId" value="11002" />
+        <property name="studentName" value="Shadow" />
+        <property name="studentSubjects">
+            <list>
+                <value>English</value>
+                <value>Maths</value>
+                <value>Physics</value>
+            </list>
+        </property>
+        <property name="studentUniqueRegistrations">
+            <set>
+                <value>Canteen</value>
+                <value>Park</value>
+                <value>Library</value>
+            </set>
+        </property>
+        <property name="studentSubjectFaculty">
+            <map>
+                <entry key="english" value="mrs gargi" />
+                <entry key="maths" value="mr guddu" />
+                <entry key="physics" value="mrs sabita" />
+            </map>
+        </property>
+        <property name="studentProperties">
+            <props>
+                <prop key="character">Average</prop>
+                <prop key="focus">Good</prop>
+                <prop key="values">Excellent</prop>
+            </props>
+        </property>
+        <!-- injecting ref of another obj -->
+        <property name="studentAddress">
+            <ref bean="address2" />
+        </property>
+    </bean>
+
+
+    <!-- defining bean using p schema (3rd way of defining bean) -->
+    <bean class="com.example.Student"
+        name="Student3"
+        p:studentId="11003"
+        p:studentName="Pritam"
+    >
+        <property name="studentSubjects">
+            <list>
+                <value>English</value>
+                <value>Biology</value>
+                <value>Chemistry</value>
+            </list>
+        </property>
+        <property name="studentUniqueRegistrations">
+            <set>
+                <value>Canteen</value>
+                <value>Park</value>
+                <value>Library</value>
+            </set>
+        </property>
+        <property name="studentSubjectFaculty">
+            <map>
+                <entry key="english" value="mrs kitty" />
+                <entry key="biology" value="mr boxer" />
+                <entry key="chemistry" value="mrs sux" />
+            </map>
+        </property>
+        <property name="studentProperties">
+            <props>
+                <prop key="character">Average</prop>
+                <prop key="focus">Good</prop>
+                <prop key="values">Excellent</prop>
+            </props>
+        </property>
+        <!-- injecting ref of another obj -->
+        <property name="studentAddress">
+            <ref bean="address3" />
+        </property>
+    </bean>
+
+
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+    <bean class="com.example.Coordinates" name="coordinate1" 
+        c:latitude="110234556.01" 
+        c:longitude="234451890.34" />
+
+    <bean class="com.example.Coordinates" name="coordinate2">
+        <constructor-arg>
+            <value>780234556.01</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>933451890.33</value>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.example.Coordinates" name="coordinate3">
+        <constructor-arg value="210234556.01" />
+        <constructor-arg value="934451890.14" />
+    </bean>
+
+    <!-- using c-schema declaration  -->
+    <bean class="com.example.Coordinates" name="coordinate4" 
+        c:latitude="111111.222"
+        c:longitude="333333.444" />
+
+</beans>

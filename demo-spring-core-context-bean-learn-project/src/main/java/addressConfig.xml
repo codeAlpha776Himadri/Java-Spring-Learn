@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+>
+    <import resource="./coordinatesConfig.xml" />
+
+    <!-- c - schema for constructor injection -->
+    <!-- if you are setting the field using ""constructor-arg"" then you are using constructor
+    injection -->
+    <!-- all beans here will be using constructor injection as defined -->
+
+    <bean class="com.example.Address" name="address1">
+        <constructor-arg value="100223" />
+        <constructor-arg value="south avenue" />
+        <constructor-arg value="morgan valley" />
+        <constructor-arg value="seatle" />
+        <constructor-arg ref="coordinate1" />
+    </bean>
+
+    <bean class="com.example.Address" name="address2">
+        <constructor-arg value="203226" />
+        <constructor-arg value="sardar street" />
+        <constructor-arg value="bulandsheher" />
+        <constructor-arg value="punjab" />
+        <constructor-arg ref="coordinate2" />
+    </bean>
+
+    <bean class="com.example.Address" name="address3">
+        <constructor-arg value="606678" />
+        <constructor-arg value="park street" />
+        <constructor-arg value="kolkata" />
+        <constructor-arg value="west bengal" />
+        <constructor-arg ref="coordinate4" />
+    </bean>
+
+</beans>

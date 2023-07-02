@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+>
+    <!-- building standalone collections (we can specify the type of collections here)-->
+    <!-- multiple beans can share standalones -->
+    <util:list list-class="java.util.LinkedList" id="myStandaloneList">
+        <value>7005810919</value>
+        <value>8745778992</value>
+    </util:list>
+
+    <util:set set-class="java.util.LinkedHashSet" id="myStandaloneSet">
+        <value>PAN</value>
+        <value>AADHAAR</value>
+    </util:set>
+
+    <util:map map-class="java.util.LinkedHashMap" id="myStandaloneMap">
+        <entry key="GD" value="Minakshi" />
+        <entry key="AT" value="Himadri" />
+    </util:map>
+
+    <util:properties id="myStandaloneProperty">
+        <prop key="driver">java.jdbc.new</prop>
+    </util:properties>
+
+    <bean class="com.StandAloneCollections.Employee" name="bean1" p:employeeName="Himadri"
+        p:employeeId="1001">
+        <property name="employeePhoneNumbers">
+            <ref bean="myStandaloneList"/>
+        </property>
+        <property name="employeeIdentitys">
+            <ref bean="myStandaloneSet"/>
+        </property>
+        <property name="employeeDeptManagers">
+            <ref bean="myStandaloneMap"/>
+        </property>
+    </bean>
+
+    <bean class="com.StandAloneCollections.Employee" name="bean2" p:employeeName="Linda"
+        p:employeeId="1001">
+        <property name="employeePhoneNumbers">
+            <ref bean="myStandaloneList"/>
+        </property>
+        <property name="employeeIdentitys">
+            <ref bean="myStandaloneSet"/>
+        </property>
+        <property name="employeeDeptManagers">
+            <ref bean="myStandaloneMap"/>
+        </property>
+    </bean>
+
+</beans>
