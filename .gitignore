@@ -1,4 +1,8 @@
 /node_modules
 .env
 *.sh
-/target
+/demo-spring-mvc-maven-project1-learn/target
+/demo-spring-mvc-maven-project2-learn/target
+/demo-spring-orm-hibernate-maven-project-learn/target
+/demo-spring-jdbc-maven-project-learn/target
+/demo-spring-core-context-bean-learn-project/target
