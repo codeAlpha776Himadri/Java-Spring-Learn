@@ -16,20 +16,23 @@ public class Product {
     
     private String name ;
     private String catagory ; 
-    private long price  ; 
+    private String description ; 
+    private Float price  ; 
     private String image ;
     
-    public Product(Integer id, String name, String catagory, long price, String image) {
+    public Product(Integer id, String name, String catagory, String description, Float price, String image) {
         this.id = id;
         this.name = name;
         this.catagory = catagory;
+        this.description= description ;
         this.price = price;
         this.image = image;
     } 
 
-    public Product(String name, String catagory, long price, String image) {
+    public Product(String name, String catagory,String description, Float price, String image) {
         this.name = name;
         this.catagory = catagory;
+        this.description= description ; 
         this.price = price;
         this.image = image;
     } 
@@ -62,11 +65,11 @@ public class Product {
         this.catagory = catagory;
     }
 
-    public long getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -77,11 +80,19 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
+    
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", catagory=" + catagory + ", price=" + price + ", image="
-                + image + "]";
+        return "Product [id=" + id + ", name=" + name + ", catagory=" + catagory + ", description=" + description
+                + ", price=" + price + ", image=" + image + "]";
     }
 
 }
